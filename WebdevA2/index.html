@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1/user-scalable=0">
+    <title>Personal Fitness & Nutrition Guide</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#4a6cf7">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="images/icon-192x192.png" type="image/x-icon">
+
+    <!-- iOS / Safari Specific -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="FitNutrition">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <link rel="apple-touch-icon" href="images/icon-192x192.png">
+</head>
+
+<body>
+    <div id="loading-bar" class="loading-bar"></div>
+
+    <!-- QR Code (visible only on desktop) -->
+    <div id="qr-code" class="qr-code">
+        <img src="images/qr-code.png" alt="QR Code to Website" width="100" height="100">
+        <p>Scan to visit on mobile</p>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <h1 class="logo"> FitNutrition Hub</h1>
+            <nav class="nav" id="nav">
+                <ul class="nav-list" id="nav-list">
+                    <li><a href="#home" data-page="home" class="nav-link active">Home</a></li>
+                    <li><a href="#bulking" data-page="bulking" class="nav-link">Bulking</a></li>
+                    <li><a href="#fatigue" data-page="fatigue" class="nav-link">Workout Fatigue</a></li>
+                    <li><a href="#muscle-gain" data-page="muscle-gain" class="nav-link">Muscle Gain</a></li>
+                    <li><a href="#meal-timing" data-page="meal-timing" class="nav-link">Meal Timing</a></li>
+                    <li><a href="#game" data-page="game" class="nav-link">Fitness Quiz</a></li>
+                    <li><a href="#gym-simulator" data-page="gym-simulator" class="nav-link">Gym Simulator</a></li>
+                </ul>
+            </nav>
+            <button class="fullscreen-toggle" id="fullscreen-toggle" aria-label="Toggle fullscreen">
+                <span class="fullscreen-icon">⛶</span>
+                <span class="exit-fullscreen-icon" style="display: none;">✕</span>
+            </button>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">☰</button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <!-- Home Page -->
+            <section id="home-page" class="page active">
+                <div class="hero">
+                    <h2 class="hero-title">Master Your Fitness Journey</h2>
+                    <p class="hero-subtitle">Learn evidence-based strategies for building muscle, optimizing nutrition, and achieving your fitness goals</p>
+                    <div class="hero-image">
+                        <img src="images/hero-fitness.jpg" alt="Fitness Journey" class="responsive-img">
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-card">
+                            <div class="stat-number">4</div>
+                            <div class="stat-label">Core Topics</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">1</div>
+                            <div class="stat-label">Interactive Game</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">∞</div>
+                            <div class="stat-label">Learning Potential</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="topics-grid">
+                    <div class="topic-card" data-page="bulking">
+                        <div class="topic-image">
+                            <img src="images/bulking.jpg" alt="Bulking Strategies" class="card-img">
+                        </div>
+                        <div class="topic-icon">🍗</div>
+                        <h3>Bulking Strategies</h3>
+                        <p>Learn effective methods for gaining muscle mass through proper nutrition and caloric surplus</p>
+                        <button class="topic-button">Explore →</button>
+                    </div>
+                    
+                    <div class="topic-card" data-page="fatigue">
+                        <div class="topic-image">
+                            <img src="images/fatigue.jpg" alt="Workout Fatigue" class="card-img">
+                        </div>
+                        <div class="topic-icon">😴</div>
+                        <h3>Workout Fatigue</h3>
+                        <p>Understand fatigue management, recovery techniques, and how to optimize training intensity</p>
+                        <button class="topic-button">Explore →</button>
+                    </div>
+                    
+                    <div class="topic-card" data-page="muscle-gain">
+                        <div class="topic-image">
+                            <img src="images/muscle-gain.jpg" alt="Quick Muscle Gain" class="card-img">
+                        </div>
+                        <div class="topic-icon">💪</div>
+                        <h3>Quick Muscle Gain</h3>
+                        <p>Discover realistic timelines and effective strategies for maximizing muscle growth</p>
+                        <button class="topic-button">Explore →</button>
+                    </div>
+                    
+                    <div class="topic-card" data-page="meal-timing">
+                        <div class="topic-image">
+                            <img src="images/meal-timing.jpg" alt="Meal Timing & Hydration" class="card-img">
+                        </div>
+                        <div class="topic-icon">⏰</div>
+                        <h3>Meal Timing & Hydration</h3>
+                        <p>Master the science of nutrient timing and proper hydration for optimal performance</p>
+                        <button class="topic-button">Explore →</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Bulking Page -->
+            <section id="bulking-page" class="page">
+                <div class="page-header">
+                    <h2>🍗 Bulking Strategies</h2>
+                    <p class="page-subtitle">Build muscle mass through strategic nutrition and training</p>
+                    <div class="header-image">
+                        <img src="images/bulking-header.jpg" alt="Bulking Strategies" class="responsive-img">
+                    </div>
+                </div>
+                
+                <div class="content-grid">
+                    <div class="content-card">
+                        <div class="card-image">
+                            <img src="images/caloric-surplus.jpg" alt="Caloric Surplus" class="card-content-img">
+                        </div>
+                        <h3>Caloric Surplus Fundamentals</h3>
+                        <div class="info-box">
+                            <p><strong>Key Principle:</strong> Consume 300-500 calories above your maintenance level</p>
+                            <ul>
+                                <li>Clean bulk: 200-300 calorie surplus</li>
+                                <li>Dirty bulk: 500+ calorie surplus</li>
+                                <li>Monitor weight gain: 0.5-1 lb per week</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="content-card">
+                        <h3>Macronutrient Distribution</h3>
+                        <div class="macro-bars">
+                            <div class="macro-bar">
+                                <div class="macro-label">Protein: 1.6-2.2g per kg body weight</div>
+                                <div class="bar-container">
+                                    <div class="bar protein-bar"></div>
+                                </div>
+                            </div>
+                            <div class="macro-bar">
+                                <div class="macro-label">Carbs: 4-7g per kg body weight</div>
+                                <div class="bar-container">
+                                    <div class="bar carb-bar"></div>
+                                </div>
+                            </div>
+                            <div class="macro-bar">
+                                <div class="macro-label">Fats: 0.8-1.2g per kg body weight</div>
+                                <div class="bar-container">
+                                    <div class="bar fat-bar"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="content-card">
+                        <h3>Bulking Calculator</h3>
+                        <div class="calculator">
+                            <input type="number" id="bulk-weight" placeholder="Your weight (kg)" class="calc-input">
+                            <button id="calc-bulk" class="calc-button">Calculate Macros</button>
+                            <div id="bulk-result" class="calc-result"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Workout Fatigue Page -->
+            <section id="fatigue-page" class="page">
+                <div class="page-header">
+                    <h2>😴 Managing Workout Fatigue</h2>
+                    <p class="page-subtitle">Optimize recovery and prevent overtraining</p>
+                    <div class="header-image">
+                        <img src="images/fatigue-header.jpg" alt="Managing Workout Fatigue" class="responsive-img">
+                    </div>
+                </div>
+                
+                <div class="content-grid">
+                    <div class="content-card">
+                        <div class="card-image">
+                            <img src="images/recovery-techniques.jpg" alt="Recovery Techniques" class="card-content-img">
+                        </div>
+                        <h3>Recovery Techniques</h3>
+                        <div class="fatigue-types">
+                            <div class="fatigue-type">
+                                <h4>Central Fatigue</h4>
+                                <p>Originates in the nervous system. Managed through adequate sleep and stress management.</p>
+                            </div>
+                            <div class="fatigue-type">
+                                <h4>Peripheral Fatigue</h4>
+                                <p>Occurs in the muscles themselves. Addressed through proper nutrition and recovery protocols.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="content-card">
+                        <h3>Recovery Strategies</h3>
+                        <div class="recovery-timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-marker">0-2h</div>
+                                <div class="timeline-content">
+                                    <h4>Immediate Recovery</h4>
+                                    <p>Protein + carbs, gentle stretching, hydration</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-marker">24h</div>
+                                <div class="timeline-content">
+                                    <h4>Short-term Recovery</h4>
+                                    <p>Quality sleep, active recovery, proper nutrition</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-marker">48-72h</div>
+                                <div class="timeline-content">
+                                    <h4>Complete Recovery</h4>
+                                    <p>Muscle protein synthesis, adaptation, readiness for next session</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="content-card">
+                        <h3>Fatigue Assessment</h3>
+                        <div class="fatigue-checker">
+                            <h4>Rate your current fatigue level (1-10):</h4>
+                            <input type="range" id="fatigue-slider" min="1" max="10" value="5" class="slider">
+                            <div class="slider-labels">
+                                <span>Fresh (1)</span>
+                                <span>Exhausted (10)</span>
+                            </div>
+                            <div id="fatigue-advice" class="advice-box"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Muscle Gain Page -->
+            <section id="muscle-gain-page" class="page">
+                <div class="page-header">
+                    <h2>💪 Quick Muscle Gain Timeline</h2>
+                    <p class="page-subtitle">Set realistic expectations for your muscle building journey</p>
+                    <div class="header-image">
+                        <img src="images/muscle-gain-header.jpg" alt="Muscle Gain Timeline" class="responsive-img">
+                    </div>
+                </div>
+                
+                <div class="content-grid">
+                    <div class="content-card">
+                        <div class="card-image">
+                            <img src="images/before-after.jpg" alt="Before and After Transformation" class="card-content-img">
+                        </div>
+                        <h3>Realistic Expectations</h3>
+                        <div class="timeline-chart">
+                            <div class="chart-item">
+                                <div class="chart-bar week1-2"></div>
+                                <div class="chart-label">Week 1-2<br>Strength gains</div>
+                            </div>
+                            <div class="chart-item">
+                                <div class="chart-bar week3-4"></div>
+                                <div class="chart-label">Week 3-4<br>Visible changes</div>
+                            </div>
+                            <div class="chart-item">
+                                <div class="chart-bar month2-3"></div>
+                                <div class="chart-label">Month 2-3<br>Noticeable growth</div>
+                            </div>
+                            <div class="chart-item">
+                                <div class="chart-bar month6-plus"></div>
+                                <div class="chart-label">Month 6+<br>Significant results</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="content-card">
+                        <h3>Muscle Gain Factors</h3>
+                        <div class="factors-grid">
+                            <div class="factor">
+                                <div class="factor-icon">🧬</div>
+                                <h4>Genetics</h4>
+                                <p>Individual response varies significantly</p>
+                            </div>
+                            <div class="factor">
+                                <div class="factor-icon">🏋️</div>
+                                <h4>Training</h4>
+                                <p>Progressive overload is essential</p>
+                            </div>
+                            <div class="factor">
+                                <div class="factor-icon">🍽️</div>
+                                <h4>Nutrition</h4>
+                                <p>Adequate protein and calories</p>
+                            </div>
+                            <div class="factor">
+                                <div class="factor-icon">😴</div>
+                                <h4>Recovery</h4>
+                                <p>7-9 hours quality sleep</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="content-card">
+                        <h3>Goal Setting Tool</h3>
+                        <div class="goal-setter">
+                            <select id="experience-level" class="goal-input">
+                                <option value="">Select experience level</option>
+                                <option value="beginner">Beginner (0-1 year)</option>
+                                <option value="intermediate">Intermediate (1-3 years)</option>
+                                <option value="advanced">Advanced (3+ years)</option>
+                            </select>
+                            <input type="number" id="current-weight" placeholder="Current weight (kg)" class="goal-input">
+                            <button id="set-goals" class="goal-button">Set Realistic Goals</button>
+                            <div id="goal-results" class="goal-results"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Meal Timing Page -->
+            <section id="meal-timing-page" class="page">
+                <div class="page-header">
+                    <h2>⏰ Meal Timing & Hydration</h2>
+                    <p class="page-subtitle">Optimize your nutrition timing for maximum results</p>
+                    <div class="header-image">
+                        <img src="images/meal-timing-header.jpg" alt="Meal Timing & Hydration" class="responsive-img">
+                    </div>
+                </div>
+                
+                <div class="content-grid">
+                    <div class="content-card">
+                        <div class="card-image">
+                            <img src="images/post-workout-nutrition.jpg" alt="Post-Workout Nutrition" class="card-content-img">
+                        </div>
+                        <h3>Post-Workout Window</h3>
+                        <div class="timing-guide">
+                            <div class="timing-item">
+                                <div class="timing-clock">3-4h</div>
+                                <div class="timing-info">
+                                    <h4>Large Meal</h4>
+                                    <p>Balanced macros, emphasis on carbs and protein</p>
+                                </div>
+                            </div>
+                            <div class="timing-item">
+                                <div class="timing-clock">1-2h</div>
+                                <div class="timing-info">
+                                    <h4>Small Meal</h4>
+                                    <p>Easy to digest carbs, moderate protein</p>
+                                </div>
+                            </div>
+                            <div class="timing-item">
+                                <div class="timing-clock">30min</div>
+                                <div class="timing-info">
+                                    <h4>Quick Snack</h4>
+                                    <p>Simple carbs, minimal fiber/fat</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="content-card">
+                        <h3>Hydration Guidelines</h3>
+                        <div class="hydration-tracker">
+                            <div class="water-bottle">
+                                <div class="water-level" id="water-level"></div>
+                                <div class="bottle-marks">
+                                    <div class="mark">2L</div>
+                                    <div class="mark">1.5L</div>
+                                    <div class="mark">1L</div>
+                                    <div class="mark">0.5L</div>
+                                </div>
+                            </div>
+                            <div class="hydration-controls">
+                                <button id="add-water" class="hydration-btn">Add 250ml 💧</button>
+                                <button id="reset-water" class="hydration-btn">Reset</button>
+                                <div id="water-status" class="water-status">Daily intake: 0ml</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="content-card">
+                        <h3>Pre-Workout Nutrition</h3>
+                        <div class="anabolic-window">
+                            <div class="window-timeline">
+                                <div class="window-segment critical">
+                                    <div class="segment-time">0-30min</div>
+                                    <div class="segment-label">Critical Window</div>
+                                    <div class="segment-desc">Protein + fast carbs optimal</div>
+                                </div>
+                                <div class="window-segment important">
+                                    <div class="segment-time">30-120min</div>
+                                    <div class="segment-label">Important Window</div>
+                                    <div class="segment-desc">Still beneficial for recovery</div>
+                                </div>
+                                <div class="window-segment normal">
+                                    <div class="segment-time">2h+</div>
+                                    <div class="segment-label">Normal Timing</div>
+                                    <div class="segment-desc">Regular meal timing</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Fitness Game Page -->
+            <section id="game-page" class="page">
+                <div class="page-header">
+                    <h2>🎮 Fitness Knowledge Challenge</h2>
+                    <p class="page-subtitle">Test your fitness and nutrition knowledge!</p>
+                    <div class="header-image">
+                        <img src="images/quiz-header.jpg" alt="Fitness Knowledge Challenge" class="responsive-img">
+                    </div>
+                </div>
+                
+                <div class="game-container">
+                    <div class="game-stats">
+                        <div class="stat">Score: <span id="game-score">0</span></div>
+                        <div class="stat">Level: <span id="game-level">1</span></div>
+                        <div class="stat">Lives: <span id="game-lives">3</span></div>
+                        <div class="stat">Time: <span id="game-time">30</span>s</div>
+                    </div>
+                    
+                    <div class="game-area" id="game-area">
+                        <div class="game-start" id="game-start">
+                            <h3>Fitness Quiz Challenge</h3>
+                            <p>Answer questions correctly to score points. You have 30 seconds per question and 3 lives!</p>
+                            <button id="start-game" class="game-button">Start Game</button>
+                        </div>
+                        
+                        <div class="game-question" id="game-question">
+                         <div class="question-text" id="question-text"></div>
+                          <div class="question-options" id="question-options"></div>
+                           <div class="question-feedback" id="question-feedback"></div>
+                             <button id="submit-answer-btn" class= "game-button">Submit Answer</button>
+                        </div>
+
+                        
+                        <div class="game-over" id="game-over">
+                            <h3>Game Over!</h3>
+                            <div class="final-score">Final Score: <span id="final-score">0</span></div>
+                            <div class="performance-rating" id="performance-rating"></div>
+                            <button id="restart-game" class="game-button">Play Again</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Gym Simulator Page -->
+            <section id="gym-simulator-page" class="page">
+                <div id="gym-event-banner" class="event-banner" style="display: none;">
+                    <span id="event-text"></span>
+                </div>
+                <div class="page-header">
+                    <h2>🏋️ Elite Gym Simulator</h2>
+                    <p class="page-subtitle">Build your virtual gains and become a fitness legend!</p>
+                    <div class="how-to-play">
+                        <button class="how-to-play-toggle" id="howToPlayToggle">
+                            <span class="toggle-icon">▶</span> How to Play
+                        </button>
+                        <div class="how-to-play-content" id="howToPlayContent">
+                            <p>Welcome to Elite Gym Simulator! Here's how to play:</p>
+                            <ol>
+                                <li>Click on the falling gains to collect them and increase your total</li>
+                                <li>But be very careful dont eat JUNKFOOD! you will lose your gains!</li>
+                                <li>Use your gains to buy upgrades that automatically generate more gains</li>
+                                <li>Unlock achievements by reaching specific milestones</li>
+                                <li>Upgrade your gym equipment to increase your gains per click</li>
+                                <li>Hire trainers to automatically generate gains for you</li>
+                                <li>Compete with friends and see who can build the most successful gym!</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="game">
+                    <div class="stats-container">
+                        <div class="stat-card">
+                            <div class="stat-value" id="gainsDisplay">0</div>
+                            <div class="stat-label">💪 Total Gains</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value" id="multiplierDisplay">x1</div>
+                            <div class="stat-label">🔥 Multiplier</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value" id="gainsPerSecDisplay">0</div>
+                            <div class="stat-label">📈 Gains/sec</div>
+                        </div>
+                    </div>
+                    
+                    <div class="gym-simulator-container">
+                        <div class="gym-main">
+                            <div id="gameArea" class="game-area">
+                                <div id="gameInstructions" class="game-instructions">
+                                    Click the gains as they fall to collect them!
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="gym-sidebar">
+                            <div class="sidebar-section upgrades-section">
+                                <h3>💎 Upgrades</h3>
+                                <div class="upgrade-list" id="upgradeList">
+                                    <div class="upgrade-item" id="spawnRateUpgrade">
+                                        <div class="upgrade-info">
+                                            <div class="upgrade-name">Faster Gains</div>
+                                            <div class="upgrade-desc">Increases spawn rate</div>
+                                            <div class="upgrade-level">Level: <span id="spawnRateLevel">0</span></div>
+                                        </div>
+                                        <button class="upgrade-button" data-upgrade="spawnRate">
+                                            <span class="upgrade-cost" id="spawnRateCost">50</span> 💪
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="upgrade-item" id="rarityBoostUpgrade">
+                                        <div class="upgrade-info">
+                                            <div class="upgrade-name">Quality Gains</div>
+                                            <div class="upgrade-desc">Better chance for rare gains</div>
+                                            <div class="upgrade-level">Level: <span id="rarityBoostLevel">0</span></div>
+                                        </div>
+                                        <button class="upgrade-button" data-upgrade="rarityBoost">
+                                            <span class="upgrade-cost" id="rarityBoostCost">100</span> 💪
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="upgrade-item" id="autoClickerUpgrade">
+                                        <div class="upgrade-info">
+                                            <div class="upgrade-name">Auto Gains</div>
+                                            <div class="upgrade-desc">Automatically collect gains</div>
+                                            <div class="upgrade-level">Level: <span id="autoClickerLevel">0</span></div>
+                                        </div>
+                                        <button class="upgrade-button" data-upgrade="autoClicker">
+                                            <span class="upgrade-cost" id="autoClickerCost">200</span> 💪
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="sidebar-section achievements-section">
+                                <h3>🏆 Achievements</h3>
+                                <div class="achievement-list" id="achievementList">
+                                    <div id="initialAchievementText" class="initial-text">
+                                        Complete goals to unlock achievements!
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="sidebar-section prestige-section">
+                                <h3>⭐ Prestige</h3>
+                                <div class="prestige-info">
+                                    <p>Reset your progress for a permanent multiplier!</p>
+                                    <div class="prestige-stats">
+                                        <div>Current Prestige: <span id="prestigeCount">0</span></div>
+                                        <div>Current Multiplier: <span id="prestigeMultiplier">x1.0</span></div>
+                                        <div>Best Run: <span id="bestRun">0</span> gains</div>
+                                    </div>
+                                    <button id="prestigeButton" class="prestige-button" disabled>
+                                        Prestige (Requires 1000+ gains)
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="sidebar-section mutations-section">
+                                <h3>🧬 Mutations</h3>
+                                <div class="mutations-info">
+                                    <p>Mutations found: <span id="mutationCount">0</span>/4</p>
+                                    <div class="mutation-types">
+                                        <div class="mutation-type" id="mutation-gold">🏆 Gold</div>
+                                        <div class="mutation-type" id="mutation-rainbow">🌈 Rainbow</div>
+                                        <div class="mutation-type" id="mutation-cosmic">🌌 Cosmic</div>
+                                        <div class="mutation-type" id="mutation-plasma">⚡ Plasma</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="toast" id="toast"></div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="social-links">
+                <a href="https://www.roblox.com/users/541050896/profile" target="_blank" rel="noopener noreferrer" class="social-link roblox" aria-label="Roblox"></a>
+                <a href="https://github.com/Nisulrocks" target="_blank" rel="noopener noreferrer" class="social-link github" aria-label="GitHub"></a>
+                <a href="https://instagram.com/nisulrocks" target="_blank" rel="noopener noreferrer" class="social-link instagram" aria-label="Instagram"></a>
+            </div>
+            <p class="copyright">&copy; 2025 Nisul Fitness & Nutrition Guide</p>
+        </div>
+    </footer>
+
+    <!-- Audio Elements -->
+    <audio id="success-sound" preload="auto">
+        <source src="audio/success.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="error-sound" preload="auto">
+        <source src="audio/error.mp3" type="audio/mpeg">
+    </audio>
+    <!-- Gym Simulator Sounds -->
+    <audio id="gym-background-music" loop preload="auto">
+        <source src="audio/BGM.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="gym-collect-sound" preload="auto">
+        <source src="audio/collect.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="gym-upgrade-sound" preload="auto">
+        <source src="audio/upgrade.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="gym-achievement-sound" preload="auto">
+        <source src="audio/achievement.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="gym-error-sound" preload="auto">
+        <source src="audio/errorhit.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="main.js"></script>
+</body>
+</html>
